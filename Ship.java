@@ -1,6 +1,6 @@
-/** *****************************************************************************************************|                                                                                                                 
+/** *****************************************************************************                                                                                                                 
  *  Names:        Jawad Sifat  - Wan ying Li - Shay Savio                                                                                                                                                                                                                                                                                                
- *                                                                                                       													 *
+ *                                                                                                                                                                                                
  *  Title:  Ship.java (object class)
  *
  *  Description: Ship object class that will be used in other files and is the basic building block
@@ -11,7 +11,7 @@
  *
  *  Compilation:   javac Ship.java
  *  
- |********************************************************************************************************* */
+ **************************************************************************** */
 
 public abstract class Ship {
 
@@ -19,23 +19,25 @@ public abstract class Ship {
 	 * I. Instance fields
 	 * 
 	 /* *********************************************************************************/
-	private int boatRow;						//the row (0 to 9) which contains the bow (front) of the ships
-	private int bowColumn; 						//the column (0 to 9) which contains the bow (front) of the ship.
-	private int length;						//the number of squares occupied by the ship. An "empty sea" location has length 1.
-	private boolean horizontal;					//true if the ship occupies a single row, false otherwise.
+	private   int bowRow;						    //the row (0 to 9) which contains the bow (front) of the ships
+	private   int bowColumn; 						//the column (0 to 9) which contains the bow (front) of the ship.
+	protected int length;							//the number of squares occupied by the ship. An "empty sea" location has length 1.
+	private   boolean horizontal;					//true if the ship occupies a single row, false otherwise.
 
 	/**
 	 * An array of booleans telling whether that part of the ship has been hit. 
 	 * Only battleships use all four locations; cruisers use the first three; destroyers 2; 
 	 * submarines 1; and "empty sea" either one or none.
 	 * */
-	private boolean[] hit = new boolean[4];	
+	protected boolean[] hit = new boolean[4];	
 
 	/***********************************************************************************|
 	 * II. Accessors
 	 * 
 	 /* *********************************************************************************/
-	 abstract int getLength();					
+	public int getLength(){
+		return length;
+	}					
 
 	public int getBoatRow(){
 		return bowRow;
@@ -58,7 +60,7 @@ public abstract class Ship {
 	 /* *********************************************************************************/
 
 	 public void setBowRow(int row){
-	 	this.boatRow = row;
+	 	this.bowRow = row;
 	 }
 
 	 public void setBowColumn(int column){
@@ -98,7 +100,7 @@ public abstract class Ship {
 	 @Override
 	 public String toString(){
 	 	if (this.isSunk()) return "x";
-	 	else return "S"
+	 	else return "S";
 	 }
 
 
