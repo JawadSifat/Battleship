@@ -1,6 +1,6 @@
-/** *****************************************************************************                                                                                                                 
+/** *****************************************************************************************************|                                                                                                                 
  *  Names:        Jawad Sifat  - Wan ying Li - Shay Savio                                                                                                                                                                                                                                                                                                
- *                                                                                                                                                                                                
+ *                                                                                                       													 *
  *  Title:  Ship.java (object class)
  *
  *  Description: Ship object class that will be used in other files and is the basic building block
@@ -11,7 +11,7 @@
  *
  *  Compilation:   javac Ship.java
  *  
- **************************************************************************** */
+ |********************************************************************************************************* */
 
 public abstract class Ship {
 
@@ -21,7 +21,7 @@ public abstract class Ship {
 	 /* *********************************************************************************/
 	private int boatRow;						//the row (0 to 9) which contains the bow (front) of the ships
 	private int bowColumn; 						//the column (0 to 9) which contains the bow (front) of the ship.
-	private int length;							//the number of squares occupied by the ship. An "empty sea" location has length 1.
+	private int length;						//the number of squares occupied by the ship. An "empty sea" location has length 1.
 	private boolean horizontal;					//true if the ship occupies a single row, false otherwise.
 
 	/**
