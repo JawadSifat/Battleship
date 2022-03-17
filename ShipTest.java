@@ -26,7 +26,7 @@ public class ShipTest {
 		System.out.println(testBattleship.getBowColumn());
 		
 		System.out.println("Set horizontal to false ");
-		testBattleship.setBowRow(false);
+		testBattleship.setHorizontal(false);
 		System.out.println(testBattleship.isHorizontal());
 		
 		
@@ -60,5 +60,3 @@ public class ShipTest {
 		
 	}
 }
-		
-		

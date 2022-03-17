@@ -39,7 +39,7 @@ public abstract class Ship {
 		return length;
 	}					
 
-	public int getBoatRow(){
+	public int getBowRow(){
 		return bowRow;
 	}
 
