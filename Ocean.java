@@ -4,10 +4,6 @@ public class Ocean {
     private static int hitCount;
 
     private static String[][] grid = new String[10][10];
-    for(int i = 0; i < 10; i++){
-	for(int j = 0; j < 10; j++)
-	    grid[i][j] = ".";
-    }
     
     public Ocean() {
 	for(int i = 0; i < 10; i++){
@@ -37,6 +33,11 @@ public class Ocean {
 		a[i].placeShipAt(row, column, horizontal, this);
 	    else
 		i--;
+	}
+	for(int i = 0; i < 10; i++){
+	    for(int j = 0; j < 10; j++){
+		grid[i][j] = ".";
+	    }
 	}
     }
     public boolean isOccupied(int row, int column) {
@@ -75,8 +76,8 @@ public class Ocean {
     public void print() {
 	System.out.println("  0 1 2 3 4 5 6 7 8 9");
 	for(int i = 0; i < 10; i++){
-	    System.out.print(i + " ")
-	    for(int j = j < 10; j++)
+	    System.out.print(i + " ");
+	    for(int j = 0; j < 10; j++)
 		System.out.print(grid[i][j] + " ");
 	    System.out.println();
 	}
