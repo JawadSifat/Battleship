@@ -7,7 +7,7 @@
  * 				of our battleship game. 
  *
  *  Written:       3/16/2022
- *  Last updated:  3/16/2022
+ *  Last updated:  3/17/2022
  *
  *  Compilation:   javac Ship.java
  *  
@@ -79,17 +79,26 @@ public abstract class Ship {
 
 	 //"Puts" the ship in the ocean. This involves giving values to the bowRow, bowColumn, and horizontal instance variables in the ship, 
 	 public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean){
-	 	return;
+	 	bowRow 			= row;
+	 	bowColumn 		= column;
+	 	horizontal      = horizontal;
+
 	 }
 
 	 //If a part of the ship occupies the given row and column, and the ship hasn't already been sunk, mark that part of the ship as "hit"
 	 //(in the hit array, 0 indicates the bow) and return true; else false
 	 public boolean shootAt(int row, int column){
-	 	return true;
+	 	if (this.isSunk()) return false;		//Early exit
+
+
 	 }
 
 	 //Return true if every part of the ship has been hit, false otherwise.
 	 public boolean isSunk(){
+	 	for (boolean x : hit){
+	 		if (x == false) return false;		//Hit is initialized to all false meaning that it wasn't hit. 
+	 	}
+	 	return true;
 
 	 }
 

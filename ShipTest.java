@@ -1,3 +1,17 @@
+/** *****************************************************************************                                                                                                                 
+ *  Names:        Jawad Sifat  - Wan ying Li - Shay Savio                                                                                                                                                                                                                                                                                                
+ *                                                                                                                                                                                                
+ *  Title:  ShipTest 
+ *
+ *  Description: TTD appraoch to making sure that all the ship and ocean methods work
+ *
+ *  Written:       3/16/2022
+ *  Last updated:  3/17/2022
+ *
+ *  Compilation:   javac ShipTest.java
+ * 	Execution:	   java ShipTest
+ **************************************************************************** */
+
 public class ShipTest {
 	
 	public static void main(String[] args) {
