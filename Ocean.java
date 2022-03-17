@@ -46,7 +46,7 @@ public class Ocean {
     }
     public boolean shootAt(int row, int column) {
 	grid[i][j] = ships[row][column].toString();
-	if(isOccupied(row, column)){
+	if(ships[row][column].shootAt(row, column)){
 	    hitCount++;
 	    shotsFired++;
 	    return true;
