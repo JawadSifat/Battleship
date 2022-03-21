@@ -15,7 +15,7 @@ public class Ocean {
 	hitCount = 0;
     }
     private boolean rBool() {
-	if(Math.Random() < 0.50)
+	if(Math.random() < 0.50)
 	    return true;
 	return false;
     }
@@ -26,8 +26,8 @@ public class Ocean {
 	Ship s = new Submarine();
 	Ship[] a = {b, c, d, s};
 	for(int i = 0; i < 3; i++) {
-	    int row = (int)Math.Random * 10;
-	    int column = (int)Math.Random * 10;
+	    int row = (int)(Math.random() * 10);
+	    int column = (int)(Math.random() * 10);
 	    boolean horizontal = rBool();
 	    if(a[i].okToPlaceShipAt(row, column, horizontal, this))
 		a[i].placeShipAt(row, column, horizontal, this);
@@ -41,12 +41,12 @@ public class Ocean {
 	}
     }
     public boolean isOccupied(int row, int column) {
-	if(a[row][column].getShipType.equals("EmptySea"))
+	if(ships[row][column].getShipType().equals("EmptySea"))
 	    return false;
 	return true;
     }
     public boolean shootAt(int row, int column) {
-	grid[i][j] = ships[row][column].toString();
+	grid[row][column] = ships[row][column].toString();
 	if(ships[row][column].shootAt(row, column)){
 	    hitCount++;
 	    shotsFired++;
@@ -61,7 +61,7 @@ public class Ocean {
     public int getHitCount() {
 	return hitCount;
     }
-    public int isGameOver() {
+    public boolean isGameOver() {
 	for(int i = 0; i < 10; i++){
 	    for(int j = 0; j < 10; j++){
 		if(isOccupied(i, j))
@@ -84,4 +84,4 @@ public class Ocean {
 
     }
 }
-	
+
