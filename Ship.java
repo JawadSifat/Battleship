@@ -71,49 +71,64 @@ public abstract class Ship {
 	 	this.horizontal = horizontal;
 	 }
 
-	
+
 	 //Returns true if it is okay to put a ship of this length with its bow in this location, with the given orientation, and returns false otherwise. 
 	 public boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean){
-	 	int len = this.getLength();
-	 	if (horizontal == true){
-	 		if ( (row + len >= ((ocean.ships).length)) ) return false;
+	 	//Essentially "flips" the board
+	 	if (horizontal) {
+	 		int tmp = row;
+	 		row = column;
+	 		column = tmp;
 	 	}
-	 	if (horizontal == false){
-	 		if ( (col + len >= ((ocean.ships[row]).length)   )) return false;
+	 	if (column < 0 || column >= 10) return false;
+	 	if (row - this.length < 0 || row >= 10) return false;
+	 	for (int i = row + 1; i > row - this.length - 1; i--) {
+	 		for (int j = column - 1; j <= column + 1; j++){
+	 			if (horizontal) {
+	 				int tmp = i;
+	 				i = j;
+	 				j = tmp;
+	 			}
+	 			if ( i >= 0 && i < 10 && j >= 0 && j < 10 && ocean.isOccupied(i, j))
+	 				return false;
+	 		}
 	 	}
 	 	return true;
-
-	 	for (int rows = row - 1; rows >= 0){
-	 		for (int cols = col - 1; col >= 0 && col < col + len; col++){
-	 			if (!(ocean.ships[row][column].getShipType() == "emptysea")) return false;
-	 		}
-	 		break;
-	 	}
-
-	 	for (int rows = row - 1; rows >= 0){
-	 		for (int cols = col - 1; col >= 0 && col < col + len; col++){
-	 			if (!(ocean.ships[row][column].getShipType() == "emptysea")) return false;
-	 		}
-	 		break;
-	 	}
-
-
-
 	 }
 
 	 //"Puts" the ship in the ocean. This involves giving values to the bowRow, bowColumn, and horizontal instance variables in the ship, 
 	 public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean){
-	 	bowRow 			= row;
-	 	bowColumn 		= column;
-	 	horizontal      = horizontal;
+	 	bowRow 			     = row;
+	 	bowColumn 		     = column;
+	 	this.horizontal      = horizontal;
 
+	 	//Essentially "flips" the board 
+	 	if (horizontal) {
+	 		int tmp = row;
+	 		row = column;
+	 		column = tmp;
+	 	}
+
+     	//Places ship 
+	 	for (int i = row; i > row - this.length; i--){
+	 		int j = column;
+	 		if (horizontal) {
+	 			int tmp = i;
+	 			i = j;
+	 			j = tmp;
+	 		}
+	 		ocean.ships[i][j] = this;	 		
+	 	}
 	 }
 
 	 //If a part of the ship occupies the given row and column, and the ship hasn't already been sunk, mark that part of the ship as "hit"
 	 //(in the hit array, 0 indicates the bow) and return true; else false
 	 public boolean shootAt(int row, int column){
 	 	if (this.isSunk()) return false;		//Early exit
-
+	 	if (this.bowRow == row && this.bowColumn == column && hit[0] == true){
+	 		return false;
+	 	}
+	 	return true;
 
 
 	 }
