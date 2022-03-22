@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class Ocean {
     private static int shotsFired;
     private static int hitCount;
 
     private static String[][] grid = new String[10][10];
-    private Ship[][] ships = new Ship[10][10];
+    protected Ship[][] ships = new Ship[10][10];
 
     public Ocean() {
         for (int i = 0; i < 10; i++) {
@@ -22,17 +24,31 @@ public class Ocean {
     }
 
     public void placeAllShipsRandomly() {
-        Ship b = new Battleship();
-        Ship c = new Cruiser();
-        Ship d = new Destroyer();
-        Ship s = new Submarine();
-        Ship[] a = { b, c, d, s };
-        for (int i = 0; i < 3; i++) {
+	Ship[] a = new Ship[10];
+	for(int i = 0; i < 10; i++){
+	    double r = Math.random();
+	    if(r < 0.25)
+		a[i] = new Submarine();
+	    else if(r < 0.50)
+		a[i] = new Cruiser();
+	    else if(r < 0.75)
+		a[i] = new Destroyer();
+	    else
+		a[i] = new Battleship();
+	}
+	ArrayList<Ship> b = new ArrayList<Ship>();
+	for(int i = 4; i > 0; i--){
+	    for(Ship x : a){
+		if(x.length == i)
+		    b.add(x);
+	    }
+	}
+        for (int i = 0; i < 10; i++) {
             int row = (int) (Math.random() * 10);
             int column = (int) (Math.random() * 10);
             boolean horizontal = rBool();
-            if (a[i].okToPlaceShipAt(row, column, horizontal, this))
-                a[i].placeShipAt(row, column, horizontal, this);
+            if (b.get(i).okToPlaceShipAt(row, column, horizontal, this))
+                b.get(i).placeShipAt(row, column, horizontal, this);
             else
                 i--;
         }
@@ -44,7 +60,8 @@ public class Ocean {
     }
 
     public boolean isOccupied(int row, int column) {
-        if (ships[row][column].getShipType().equals("EmptySea"))
+        if (ships[row][column].getShipType().equals("emptysea") ||
+	    ships[row][column].isSunk())
             return false;
         return true;
     }
@@ -93,4 +110,3 @@ public class Ocean {
 
     }
 }
-
