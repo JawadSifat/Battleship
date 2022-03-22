@@ -64,7 +64,7 @@ public class Ocean {
     public boolean isGameOver() {
 	for(int i = 0; i < 10; i++){
 	    for(int j = 0; j < 10; j++){
-		if(isOccupied(i, j))
+		if(isOccupied(i, j) && !ships[i][j].isSunk())
 		    return false;
 	    }
 	}
