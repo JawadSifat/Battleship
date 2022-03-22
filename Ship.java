@@ -125,12 +125,9 @@ public abstract class Ship {
 	 //(in the hit array, 0 indicates the bow) and return true; else false
 	 public boolean shootAt(int row, int column){
 	 	if (this.isSunk()) return false;		//Early exit
-	 	if (this.bowRow == row && this.bowColumn == column && hit[0] == true){
-	 		return false;
-	 	}
-	 	return true;
-
-
+	 	int distance = (int) (Math.sqrt(Math.pow((row - this.bowRow), 2)  + Math.pow((column - this.bowColumn), 2)));
+	 	hit[distance] = true; 
+	 	return true; 
 	 }
 
 	 //Return true if every part of the ship has been hit, false otherwise.
