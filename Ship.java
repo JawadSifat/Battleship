@@ -74,7 +74,31 @@ public abstract class Ship {
 	
 	 //Returns true if it is okay to put a ship of this length with its bow in this location, with the given orientation, and returns false otherwise. 
 	 public boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean){
+	 	int len = this.getLength();
+	 	if (horizontal == true){
+	 		if ( (row + len >= ((ocean.ships).length)) ) return false;
+	 	}
+	 	if (horizontal == false){
+	 		if ( (col + len >= ((ocean.ships[row]).length)   )) return false;
+	 	}
 	 	return true;
+
+	 	for (int rows = row - 1; rows >= 0){
+	 		for (int cols = col - 1; col >= 0 && col < col + len; col++){
+	 			if (!(ocean.ships[row][column].getShipType() == "emptysea")) return false;
+	 		}
+	 		break;
+	 	}
+
+	 	for (int rows = row - 1; rows >= 0){
+	 		for (int cols = col - 1; col >= 0 && col < col + len; col++){
+	 			if (!(ocean.ships[row][column].getShipType() == "emptysea")) return false;
+	 		}
+	 		break;
+	 	}
+
+
+
 	 }
 
 	 //"Puts" the ship in the ocean. This involves giving values to the bowRow, bowColumn, and horizontal instance variables in the ship, 
@@ -89,6 +113,7 @@ public abstract class Ship {
 	 //(in the hit array, 0 indicates the bow) and return true; else false
 	 public boolean shootAt(int row, int column){
 	 	if (this.isSunk()) return false;		//Early exit
+
 
 
 	 }
