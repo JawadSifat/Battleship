@@ -1,4 +1,23 @@
-public class BattleShipGame {
+/**
+ * /** *****************************************************************************
+ * Names:        Jawad Sifat  - Wan ying Li - Shay Savio
+ * <p>
+ * Title:  BattleshipGame.java (Client class)
+ * <p>
+ * Description: Client for the battleship game, accepts row and column inputs via input stream
+ * <p>
+ * Written:       3/20/2022
+ * Last updated:  3/22/2022
+ * <p>
+ * Compilation:   javac -classpath .:stdlib.jar BattleshipGame.java
+ * Execution:     java  -classpath .:stdlib.jar BattleshipGame
+ * Dependencies:  stdlib.jar
+ * <p>
+ * ***************************************************************************
+ */
+
+
+public class BattleshipGame {
 
     public static void main(String[] args) {
 
