@@ -1,3 +1,18 @@
+/** *****************************************************************************                                                                                                                 
+ *  Names:        Jawad Sifat  - Wan ying Li - Shay Savio                                                                                                                                                                                                                                                                                                
+ *                                                                                                                                                                                                
+ *  Title:  Ocean 
+ *
+ *  Description: Ocean acts as the backend for the grid, it controls where to place ships and commands 
+ *  the different states of the game.
+ *
+ *  Written:       3/16/2022
+ *  Last updated:  3/22/2022
+ *
+ *  Compilation:   javac Ocean.java
+ **************************************************************************** */
+
+
 import java.util.ArrayList;
 
 public class Ocean {

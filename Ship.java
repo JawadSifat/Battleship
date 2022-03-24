@@ -80,8 +80,8 @@ public abstract class Ship {
 
     //Returns true if it is okay to put a ship of this length with its bow in this location, with the given orientation, and returns false otherwise.
     private boolean otph(int row, int column, Ocean ocean) {
-		
-		//check if there is enough room to put the ship in a give row
+        
+        //check if there is enough room to put the ship in a give row
         int max = 11;
         for (int i = column; i < 10; i++) {
             if (ocean.isOccupied(row, i)) {
@@ -90,41 +90,41 @@ public abstract class Ship {
             }
         }
         if (max - column < length + 1) return false;
-		if (column + length > 9) return false;
-		//check if there is any ship on the row above the given row
+        if (column + length > 9) return false;
+        //check if there is any ship on the row above the given row
         if (row != 0) {
-			if (column > 1) {
-				for (int i = column - 1; i < column + length + 1; i++) {
-					if (ocean.isOccupied(row - 1, i))
-						return false;
-				}
-			} else {
-				for (int i = column; i < column + length + 1; i++) {
+            if (column > 1) {
+                for (int i = column - 1; i < column + length + 1; i++) {
+                    if (ocean.isOccupied(row - 1, i))
+                        return false;
+                }
+            } else {
+                for (int i = column; i < column + length + 1; i++) {
                 if (ocean.isOccupied(row - 1, i))
                     return false;
-				}
-			}
+                }
+            }
         }
-		//check if there is any ship on the row below the given row
+        //check if there is any ship on the row below the given row
         if (row != 9) {
-			if (column > 1) {
-				for (int i = column - 1; i < column + length + 1; i++) {
-					if (ocean.isOccupied(row + 1, i))
-						return false;
-				}
-			} else {
-				for (int i = column; i < column + length + 1; i++) {
+            if (column > 1) {
+                for (int i = column - 1; i < column + length + 1; i++) {
+                    if (ocean.isOccupied(row + 1, i))
+                        return false;
+                }
+            } else {
+                for (int i = column; i < column + length + 1; i++) {
                 if (ocean.isOccupied(row + 1, i))
                     return false;
-				}
-			}
+                }
+            }
         }
-		//checks if there is any ship to the left and right of the ship
+        //checks if there is any ship to the left and right of the ship
         if (column != 0) {
             if (ocean.isOccupied(row, column - 1))
                 return false;
         }
-		if (column != 9) {
+        if (column != 9) {
             if (ocean.isOccupied(row, column + 1))
                 return false;
         }
@@ -141,48 +141,48 @@ public abstract class Ship {
             }
         }
         if (max - row < length + 1) return false;
-		if (row + length > 9) return false;
-		//check if there is any ship on the column left to the given column
+        if (row + length > 9) return false;
+        //check if there is any ship on the column left to the given column
         if (column != 0) {
-			if (row > 1) {
-				for (int i = row - 1; i < row + length + 1; i++) {
-					if (ocean.isOccupied(i, column - 1))
-						return false;
-				}
-			} else {
-				for (int i = row; i < row + length + 1; i++) {
+            if (row > 1) {
+                for (int i = row - 1; i < row + length + 1; i++) {
+                    if (ocean.isOccupied(i, column - 1))
+                        return false;
+                }
+            } else {
+                for (int i = row; i < row + length + 1; i++) {
                 if (ocean.isOccupied(i, column - 1))
                     return false;
-				}
-			}
+                }
+            }
         }
-		//check if there is any ship on the column right to the given column
+        //check if there is any ship on the column right to the given column
         if (column != 9) {
-			if (row > 1) {
-				for (int i = row - 1; i < row + length + 1; i++) {
-					if (ocean.isOccupied(i, column + 1))
-						return false;
-				}
-			} else {
-				for (int i = row; i < row + length + 1; i++) {
+            if (row > 1) {
+                for (int i = row - 1; i < row + length + 1; i++) {
+                    if (ocean.isOccupied(i, column + 1))
+                        return false;
+                }
+            } else {
+                for (int i = row; i < row + length + 1; i++) {
                 if (ocean.isOccupied(i, column + 1))
                     return false;
-				}
-			}
+                }
+            }
         }
-		//checks if there is any ship under and above the ship
+        //checks if there is any ship under and above the ship
         if (row != 0) {
             if (ocean.isOccupied(row - 1, column))
                 return false;
         }
-		if (row != 9) {
+        if (row != 9) {
             if (ocean.isOccupied(row + 1, column))
                 return false;
         }
         return true;
     }
-	/*
-	private boolean otph(int row, int column, Ocean ocean) {
+    /*
+    private boolean otph(int row, int column, Ocean ocean) {
         int max = 11;
         for (int i = column; i < 10; i++) {
             if (ocean.isOccupied(row, i)) {

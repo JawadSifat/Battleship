@@ -1,3 +1,17 @@
+/** *****************************************************************************                                                                                                                 
+ *  Names:        Jawad Sifat  - Wan ying Li - Shay Savio                                                                                                                                                                                                                                                                                                
+ *                                                                                                                                                                                                
+ *  Title:  Ocean Test Client
+ *
+ *  Description: Tests the calls for the ocean class
+ *
+ *  Written:       3/16/2022
+ *  Last updated:  3/22/2022
+ *
+ *  Compilation:   javac Ocean.java
+ **************************************************************************** */
+
+
 public class OceanTest {
     public static void main(String[] args) {
         Ocean ocean = new Ocean();
